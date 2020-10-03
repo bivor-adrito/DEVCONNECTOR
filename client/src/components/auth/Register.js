@@ -76,7 +76,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
           />
         </div>
         <div className='form-group'>
-          <input
+          <input 
             type='password'
             placeholder='Confirm Password'
             name='password2'
