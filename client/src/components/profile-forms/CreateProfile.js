@@ -55,7 +55,7 @@ const CreateProfile = ({ createProfile, history }) => {
         profile stand out
       </p>
       <small>* = required field</small>
-      <form className='form' onSubmit={e => onSubmit(e)}>
+      <form className='form' onSubmit={(e) => onSubmit(e)}>
         <div className='form-group'>
           <select name='status' value={status} onChange={(e) => onChange(e)}>
             <option value='0'>* Select Professional Status</option>
@@ -208,9 +208,9 @@ const CreateProfile = ({ createProfile, history }) => {
         )}
 
         <input type='submit' className='btn btn-primary my-1' />
-        <a className='btn btn-light my-1' href='dashboard.html'>
+        <Link className='btn btn-light my-1' to='/dashboard'>
           Go Back
-        </a>
+        </Link>
       </form>
     </Fragment>
   );
