@@ -7,6 +7,8 @@ const router = express.Router();
 const auth = require('../../middleware/auth');
 //  NOTE: CALLING PROFILE MODEL
 const Profile = require('../../models/Profile');
+//  NOTE: CALLING POST MODEL
+const Post = require('../../models/Post');
 //  NOTE: CALLING USER MODEL
 const User = require('../../models/User');
 // NOTE: CALLING EXPRESS VALIDATOR
@@ -173,8 +175,9 @@ router.get('/user/:user_id', async (req, res) => {
 router.delete('/', auth, async (req, res) => {
   try {
     //TODO: remove users posts
+    //Remove User Posts
+    await Post.deleteMany({ user: req.user.id });
     //Remove profile
-
     await Profile.findOneAndRemove({ user: req.user.id });
     //Remove user
     await User.findOneAndRemove({ _id: req.user.id });
@@ -370,6 +373,5 @@ router.get('/github/:username', (req, res) => {
     res.status(500).send('Server Error');
   }
 });
-
 
 module.exports = router;
