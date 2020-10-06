@@ -19,7 +19,7 @@ import { loadUser } from './actions/auth';
 import setAuthToken from './utils/setAuthToken';
 
 import './App.css';
-import { addEducation } from './actions/profile';
+//import { addEducation } from './actions/profile';
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);
