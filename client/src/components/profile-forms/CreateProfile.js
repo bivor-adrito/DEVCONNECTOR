@@ -202,7 +202,8 @@ const CreateProfile = ({ createProfile, history }) => {
 
             <div className='form-group social-input'>
               <i className='fab fa-instagram fa-2x'></i>
-              <input type='text' placeholder='Instagram URL' name='instagram' />
+              <input type='text' placeholder='Instagram URL' name='instagram' value={instagram}
+                onChange={(e) => onChange(e)}/>
             </div>
           </Fragment>
         )}
