@@ -13,6 +13,7 @@ import AddEducation from './components/profile-forms/AddEducation';
 import Profiles from './components/profiles/Profiles';
 import Profile from './components/profile/Profile';
 import Posts from './components/posts/Posts';
+import Post from './components/post/Post';
 import PrivateRoute from './components/routing/PrivateRoute';
 
 //Redux
@@ -47,9 +48,8 @@ const App = () => {
               <Route exact path='/login' component={Login} />
 
               <Route exact path='/profiles' component={Profiles} />
-             
-              <Route exact path='/profile/:id' component={Profile} />
 
+              <Route exact path='/profile/:id' component={Profile} />
 
               <PrivateRoute exact path='/dashboard' component={Dashboard} />
               <PrivateRoute
@@ -72,11 +72,8 @@ const App = () => {
                 path='/add-education'
                 component={AddEducation}
               />
-              <PrivateRoute
-                exact
-                path='/posts'
-                component={Posts}
-              />
+              <PrivateRoute exact path='/posts' component={Posts} />
+              <PrivateRoute exact path='/posts/:id' component={Post} />
             </Switch>
           </section>
         </Fragment>
