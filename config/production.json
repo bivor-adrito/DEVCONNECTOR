@@ -1,0 +1,6 @@
+{
+    "mongoURI": "mongodb+srv://bivor123:bivor123@devconnector.iro79.mongodb.net/<dbname>?retryWrites=true&w=majority",
+    "jwtSecret": "mysecrettoken",
+    "githubClientId": "604d230f89beb8a2ddef",
+    "githubSecret": "d3ade55c77f9f7473a8d508e163799166dc92b3d"
+  }

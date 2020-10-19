@@ -159,7 +159,7 @@ router.put('/unlike/:id', auth, async (req, res) => {
 });
 
 // @route    POST api/posts/comment/:id
-// @desc     Create a post
+// @desc     Create a comment
 // @access   Private
 router.post(
   '/comment/:id',
@@ -200,7 +200,9 @@ router.delete('/comment/:id/:comment_id', auth, async (req, res) => {
     const post = await Post.findById(req.params.id);
 
     //pull out comment
-    const comment = post.comments.find(comment => comment.id === req.params.comment_id);
+    const comment = post.comments.find(
+      (comment) => comment.id === req.params.comment_id
+    );
 
     //make sure comment exists
     if (!comment) {
@@ -212,7 +214,7 @@ router.delete('/comment/:id/:comment_id', auth, async (req, res) => {
       return res.status(401).json({ msg: 'User not authorized' });
     }
 
-     //NOTE get remove index
+    //NOTE get remove index
     //! very similar to the process of delete experience
     const removeIndex = post.comments
       .map((comment) => comment.user.toString())
@@ -223,14 +225,13 @@ router.delete('/comment/:id/:comment_id', auth, async (req, res) => {
 
     res.json(post.comments);
 
-
     //!
     // await post.remove();
 
     // res.json({ msg: 'Post removed' });
   } catch (err) {
     console.error(err.message);
-      res.status(500).send('Server Error');
+    res.status(500).send('Server Error');
   }
 });
 
